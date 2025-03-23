@@ -15,3 +15,22 @@ function showCurrentDate() {
 }
 
 showCurrentDate();
+
+
+
+// Current Date show on cards
+
+function showNextDate() {
+    const today = new Date();
+    today.setDate(today.getDate() + 1);
+
+    const options = { month: "short", day: "numeric", year: "numeric" };
+    const formattedDate = today.toLocaleDateString("en-US", options);
+
+    const dateElements = document.getElementsByClassName("card-date");
+    for (let element of dateElements) {
+        element.innerText = formattedDate;
+    }
+}
+
+showNextDate();
