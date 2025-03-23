@@ -2,12 +2,14 @@ const buttons = document.querySelectorAll(".completed-btn");
 buttons.forEach(function (button) {
     button.addEventListener("click", function () {
         alert("Board Updated Successfully")
-        
+
         button.disabled = true;
 
         decreaseTotalTask();
 
         increaseTotalCompletedTask();
+
+        checkIfAllTasksCompleted();
 
 
         const cardTitle = button.parentElement.parentElement.querySelector('h1').innerText;
@@ -63,3 +65,15 @@ document.getElementById("clear-history-btn")
             p.remove();
         });
     });
+
+
+
+
+// Final Alert
+function checkIfAllTasksCompleted() {
+
+    const totalTaskCount = document.getElementById("total-task");
+    if (totalTaskCount.innerText === "0") {
+        alert("Congrats!!! You have completed all the task.")
+    }
+}
